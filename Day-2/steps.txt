@@ -1,0 +1,217 @@
+Regular expressions are a powerful language for matching text patterns. This page gives a basic introduction to regular expressions themselves sufficient for our Python exercises and shows how regular expressions work in Python. The Python "re" module provides regular expression support.
+In Python a regular expression search is typically written as:
+
+import re
+myString = 'an example word:cat!!'
+match = re.search(r'word:\w\w\w', myString)
+print(match.group())
+
+
+text = 'the cat ]]]]]cat[[[[[*ches the [[[[[[cat&&&&erpiller.'
+pattern = r'\bcat\b'
+print(re.findall(pattern, text))
+
+
+
+## Search for pattern 'iii' in string 'piiig'.
+## All of the pattern must match, but it may appear anywhere.
+## On success, match.group() is matched text.
+match1 = re.search(r'iii', 'piiig') # found, match.group() == "iii"
+match2 = re.search(r'igs', 'piiig') # not found, match == None
+
+## . = any char but except \n
+match3 = re.search(r'..g', 'piiig') # found, match.group() == "iig"
+
+## \d = digit char, \w = word char
+match4 = re.search(r'\d\d\d', 'p12345g') # found, match.group() == "123"
+match5 = re.search(r'\w\w\w', '@@abcd!!') # found, match.group() == "abc"
+match6 = re.search(r'\d+', 'p12345g') # found, match.group() == "123"
+match7 = re.search(r'\w+', '@@abcd!!') # found, match.group() == "abc"
+
+
+
+
+Basic Patterns
+The power of regular expressions is that they can specify patterns, not just fixed characters. Here are the most basic patterns which match single chars:
+
+a, X, 9, < -- ordinary characters just match themselves exactly. The meta-characters which do not match themselves because they have special meanings are: . ^ $ * + ? { [ ] \ | ( ) (details below)
+. (a period) -- matches any single character except newline '\n'
+\w -- (lowercase w) matches a "word" character: a letter or digit or underbar [a-zA-Z0-9_]. Note that although "word" is the mnemonic for this, it only matches a single word char, not a whole word. \W (upper case W) matches any non-word character.
+\b -- boundary between word and non-word
+\s -- (lowercase s) matches a single whitespace character -- space, newline, return, tab, form [ \n\r\t\f]. \S (upper case S) matches any non-whitespace character.
+\t, \n, \r -- tab, newline, return
+\d -- decimal digit [0-9] (some older regex utilities do not support \d, but they all support \w and \s)
+^ = start, $ = end -- match the start or end of the string
+\ -- inhibit the "specialness" of a character. So, for example, use \. to match a period or \\ to match a slash. If you are unsure if a character has special meaning, such as '@', you can try putting a slash in front of it, \@. If its not a valid escape sequence, like \c, your python program will halt with an error.
+
+
+## Search for pattern 'iii' in string 'piiig'.
+## All of the pattern must match, but it may appear anywhere.
+## On success, match.group() is matched text.
+match1 = re.search(r'iii', 'piiig') # found, match.group() == "iii"
+match2 = re.search(r'igs', 'piiig') # not found, match == None
+
+## . = any char but except \n
+match3 = re.search(r'..g', 'piiig') # found, match.group() == "iig"
+
+## \d = digit char, \w = word char
+match4 = re.search(r'\d\d\d', 'p12345g') # found, match.group() == "123"
+match5 = re.search(r'\w\w\w', '@@abcd!!') # found, match.group() == "abc"
+match6 = re.search(r'\d+', 'p12345g') # found, match.group() == "123"
+match7 = re.search(r'\w+', '@@abcd!!') # found, match.group() == "abc"
+
+----------------------------------------# database
+in python terminal type this: pip install mysql.connector
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "Root123$"
+)
+
+print(mydb)
+
+
+
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "Root123$"
+)
+cursor = mydb.cursor()
+# cursor.execute("CREATE DATABASE brainstrom")
+cursor.execute("USE brainstrom")
+cursor.execute("DROP TABLE company")
+cursor.execute("""CREATE TABLE company 
+                    (
+                        name VARCHAR(255), 
+                        ownerName VARCHAR(255)
+                    )
+                """)
+cursor.execute("SHOW TABLES")
+# cursor.execute("SHOW DATABASES")
+for x in cursor:
+    print(x)
+print(mydb)
+
+
+------------------------------------- Database CRUD and Exception Handling
+import mysql.connector
+
+dbConfig = {
+    "host": 'localhost',
+    "user": 'root',
+    "password": 'Root123$',
+}
+
+def createDatabase():
+    try:
+        conn = mysql.connector.connect(**dbConfig)
+        cursor = conn.cursor()
+        cursor.execute("CREATE DATABASE brainstrom")
+        cursor.execute("SHOW DATABASES")
+        return conn
+    except mysql.connector.Error as err:
+        print("Error connecting to the database: ", err)
+        return None
+    
+def connectToDB(dbName):
+    try:
+        conn = mysql.connector.connect(**dbConfig)
+        cursor = conn.cursor()
+        cursor.execute(f"USE {dbName}")
+        print("Connected to the database.")
+        return conn
+    except mysql.connector.Error as err:
+        print("Error connecting to the database: ", err)
+        return None
+
+def createTable(conn):
+    try:
+        cursor = conn.cursor()
+        createTableQuery = """CREATE TABLE IF NOT EXISTS employees 
+                        (
+                            id INT AUTO_INCREMENT PRIMARY KEY, 
+                            name VARCHAR(255) NOT NULL,
+                            age INT,
+                            department VARCHAR(100)        
+                        )
+                    """
+        cursor.execute(createTableQuery)
+    except mysql.connector.Error as err:
+        print("Error creating table: ", err)
+        return None
+
+# def connectToDB():
+    try:
+        conn = mysql.connector.connect(**dbConfig)
+        print("Connected to the database.")
+        return conn
+    except mysql.connector.Error as err:
+        print("Error connecting to the database: ", err)
+        return None
+    
+def insertRecord(conn, name, age, department):
+    try:
+        cursor = conn.cursor()
+        insertQuery = "INSERT INTO employees (name, age, department) VALUES (%s, %s, %s)"
+        data = (name, age, department)
+        cursor.execute(insertQuery, data)
+        conn.commit()
+        print("Record inserted successfully!")
+    except mysql.connector.Error as err:
+        print("Error inserting record: ", err)
+        return None
+
+
+def fetchRecords(conn):
+    try:
+        cursor = conn.cursor()
+        fetchQuery = "SELECT * FROM employees"
+        cursor.execute(fetchQuery)
+        records = cursor.fetchall()
+        for record in records:
+            print(record)
+    except mysql.connector.Error as err:
+        print("Error fetching records: ", err)
+
+def updateRecord(conn, id, name, age, department):
+    try:
+        cursor = conn.cursor()
+        updateQuery = "UPDATE employees SET name = %s, age = %s, department = %s WHERE id = %s"
+        data = (name, age, department, id)
+        cursor.execute(updateQuery, data)
+        conn.commit()
+        print("Record updated successfully!")
+    except mysql.connector.Error as err:
+        print("Error updating record: ", err)
+
+def deleteRecord(conn, id):
+    try:
+        cursor = conn.cursor()
+        delete_query = "DELETE FROM employees WHERE id = %s"
+        data = (id,)
+        cursor.execute(delete_query, data)
+        conn.commit()
+        print("Record deleted successfully")
+    except mysql.connector.Error as err:
+        print("Error deleting record:", err)
+
+
+
+
+
+id = 1
+name = "Batman"
+age = "15"
+department = "IT"
+
+
+# createDatabase()
+conn = connectToDB(dbName="brainstrom")
+# createTable(conn)
+# insertRecord(conn, name=name, age=age, department=department)
+# fetchRecords(conn)
+# updateRecord(conn, id=id, name=name, age=age, department=department)
+deleteRecord(conn, 1)
