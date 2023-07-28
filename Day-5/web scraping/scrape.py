@@ -15,9 +15,5 @@ print(f"There are {nb_links} links in this page")
 first_link = soup.a
 print(first_link)
 print(first_link.text)
-print(first_link.get('href')
+print(first_link.get('href'))
 
-pagespace = soup.find(id="pagespace")
-print(pagespace)
-athing = soup.find(class_="athing")
-print(athing)
