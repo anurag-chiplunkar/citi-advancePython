@@ -1,0 +1,46 @@
+
+import pandas as pd
+
+df = pd.read_csv("data.csv")
+
+df.info()
+
+df.duplicate().any()
+
+# Finding missing elements in the data
+df.isnull()
+
+df.isna()
+
+df.isna().any()
+
+df.isna().sum()
+
+df.fillna(
+    {
+        'name': 'Not Stated',
+        'host_name': 'Not Stated',
+        'last_review': 0,
+    },
+    inplace=True
+)
+
+df.isna().sum()
+
+# Dropping column from dataframe
+df.drop(
+    [
+        'reviews_per_month'
+    ],
+    axis = 1,
+    inplace=True
+)
+
+df.isna().sum()
+
+# Checking the uniqueness of the id column
+df['id'].is_unique
+
+# Making id column as the index of the dataframe
+df.set_index('id',inplace=True)
+df.head()
