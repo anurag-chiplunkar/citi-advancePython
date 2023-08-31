@@ -1,0 +1,998 @@
+testing################# Day 1
+Topic1:  Real life applicability and case of Python Programming Language
+ 
+1. Data Analysis and Visualization
+        1.1 Numpy
+        1.2 Pandas
+        1.3 Matplot
+ 
+2. Machine Learning
+3. Natural Language Processing
+4. Image Processing OR Computer Vision
+5. Time Series Analysis
+6. Data Cleaning and Preprocessing
+7. Data Mining and Web Scraping
+8. Recommendation System
+9. Health Analysis
+10. Business Intelligence
+ 
+Topic 2: Environment
+1. To create virtual environment type: "python -m venv .venv"
+2. to check the libraries installed on your local computer type: "pip list"
+3. navigate into the virtual environment folder: "cd .venv"
+4. after navigating into the folder, to start the virtual environment: "Scripts\activate"
+5. install numpy library inside your new virtual environment: "pip install numpy"
+6. Now check the list of libraries installed on your virtual environment: "pip list"
+7. now to deactivate the virtual environment we need to again navigate into the .venv folder: "cd .venv"
+8. to deactivate the virtual environment type: "Scripts\deactivate.bat"
+ 
+Topic 3: Datatypes Overview
+# Integer
+num = 5
+ 
+# Floating
+num = 5.5
+ 
+# Complex Number
+complexNumber = 2 +3j
+ 
+# String
+message = "Hello World!"
+ 
+# List
+colors = ['red', 'green', 'blue']
+ 
+# Tuples
+point = (3, 5)
+ 
+# Sets
+# Sets are unordered collections of unique elements.
+uniqueNumbers = {1,2,3,4,4,5,6,6,7,8,8,9}
+ 
+# Dictionary
+# Dictionary is a key-value pair
+student = {'name': 'Ganesh', 'age': 20, 'major': 'Computer Science'}
+ 
+# Boolean
+isActive = True
+isHungry = False
+ 
+# NoneType
+status = None
+ 
+Topic 4: List Comprehension
+# List comprehensions are a concise and powerful way to create lists in Python. They allow you to create lists by applying an expression to each item in an iterable. Here are a few basic to advanced examples of list comprehensions:
+ 
+# **Basic Examples:**
+ 
+# 1. **Creating a Squares List:**
+#    Generate a list of squares of numbers from 0 to 4.
+ 
+squares = [x**2 for x in range(5)]
+print(squares)
+# Output: [0, 1, 4, 9, 16]
+ 
+# 2. **Filtering Even Numbers:**
+#    Create a list of even numbers from 0 to 9.
+ 
+evens = [x for x in range(10) if x % 2 == 0]
+# Output: [0, 2, 4, 6, 8]
+ 
+Topic 5: Custom Functions
+# Here are some examples of custom functions in Python, ranging from basic to advanced levels:
+ 
+# **Basic Examples:**
+ 
+# 1. **Simple Function:**
+#    Define a basic function that takes two numbers as input and returns their sum.
+ 
+def add_numbers(a, b):
+    return a + b
+ 
+result = add_numbers(3, 5)
+print(result)
+# Output: 8
+ 
+# **Advance Examples:**
+ 
+# 3. **Function with Variable Number of Arguments:**
+#    Define a function that can take a variable number of arguments.
+ 
+def calculate_sum(*args):
+    return sum(args)
+ 
+total = calculate_sum(1,2)
+print(total)
+# Output: 10
+ 
+# 5. **Recursion:**
+#    Implement a recursive function to calculate the factorial of a number.
+ 
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n - 1)
+ 
+factorial_5 = factorial(5)
+# Output: 120
+ 
+Topic 6: File Handling
+# **Basic Examples:**
+ 
+# 1. **Reading from a File:**
+#    Read and print the contents of a text file.
+ 
+# Different modes for file handling
+ 
+# ------------------------------------# file handling modes
+# SN        Access mode        Description
+# 1        r        It opens the file to read-only mode. The file pointer exists at the beginning. The file is by default open in this mode if no access mode is passed.
+# 2        rb        It opens the file to read-only in binary format. The file pointer exists at the beginning of the file.
+# 3        r+        It opens the file to read and write both. The file pointer exists at the beginning of the file.
+# 4        rb+        It opens the file to read and write both in binary format. The file pointer exists at the beginning of the file.
+# 5        w        It opens the file to write only. It overwrites the file if previously exists or creates a new one if no file exists with the same name. The file pointer exists at the beginning of the file.
+# 6        wb        It opens the file to write only in binary format. It overwrites the file if it exists previously or creates a new one if no file exists. The file pointer exists at the beginning of the file.
+# 7        w+        It opens the file to write and read both. It is different from r+ in the sense that it overwrites the previous file if one exists whereas r+ doesn't overwrite the previously written file. It creates a new file if no file exists. The file pointer exists at the beginning of the file.
+# 8        wb+        It opens the file to write and read both in binary format. The file pointer exists at the beginning of the file.
+# 9        a        It opens the file in the append mode. The file pointer exists at the end of the previously written file if exists any. It creates a new file if no file exists with the same name.
+# 10        ab        It opens the file in the append mode in binary format. The pointer exists at the end of the previously written file. It creates a new file in binary format if no file exists with the same name.
+# 11        a+        It opens a file to append and read both. The file pointer remains at the end of the file if a file exists. It creates a new file if no file exists with the same name.
+# 12        ab+        It opens a file to append and read both in binary format. The file pointer remains at the end of the file.
+ 
+# with open('example.txt', 'r') as file:
+#     content = file.read()
+#     print(content)
+ 
+# 2. **Writing to a File:**
+#    Write data to a new or existing text file.
+ 
+with open('output.txt', 'w') as file:
+    file.write('Hello New World\n')
+    file.write('New example for Python file handling.')
+ 
+# 3. **Appending to a File:**
+#    Append new data to an existing file.
+ 
+with open('output.txt', 'a') as file:
+    file.write('\n')
+    file.write('\n')
+    file.write('Hello, World!\n')
+    file.write('Python File Handling Example')
+ 
+Topic 7: Modules and Packages
+Add following lines inside the adv-python folder inside the __init__.py file
+from adv-python.dataTypes import complexNumber
+from .dataTypes import complexNumber
+from adv-python import dataTypes
+import dataTypes
+from . import dataTypes
+ 
+from .dataTypes import student
+from .dataTypes import complexNumber
+from exampleFunctions import factorial
+import dataTypes
+from . import dataTypes
+ 
+ 
+################# Day 2
+Topic 1: Regular Expression
+Regular expressions are a powerful language for matching text patterns. This page gives a basic introduction to regular expressions themselves sufficient for our Python exercises and shows how regular expressions work in Python. The Python "re" module provides regular expression support.
+ 
+# Basic Patterns
+# The power of regular expressions is that they can specify patterns, not just fixed characters. Here are the most basic patterns which match single chars:
+ 
+# a, X, 9, < -- ordinary characters just match themselves exactly. The meta-characters which do not match themselves because they have special meanings are: . ^ $ * + ? { [ ] \ | ( ) (details below)
+# . (a period) -- matches any single character except newline '\n'
+# \w -- (lowercase w) matches a "word" character: a letter or digit or underbar [a-zA-Z0-9_]. Note that although "word" is the mnemonic for this, it only matches a single word char, not a whole word. \W (upper case W) matches any non-word character.
+# \b -- boundary between word and non-word
+# \s -- (lowercase s) matches a single whitespace character -- space, newline, return, tab, form [ \n\r\t\f]. \S (upper case S) matches any non-whitespace character.
+# \t, \n, \r -- tab, newline, return
+# \d -- decimal digit [0-9] (some older regex utilities do not support \d, but they all support \w and \s)
+# ^ = start, $ = end -- match the start or end of the string
+# \ -- inhibit the "specialness" of a character. So, for example, use \. to match a period or \\ to match a slash. If you are unsure if a character has special meaning, such as '@', you can try putting a slash in front of it, \@. If its not a valid escape sequence, like \c, your python program will halt with an error.
+ 
+import re
+myString = 'an example word:cat!!'
+match = re.search(r'word:\w\w\w', myString)
+print(match.group())
+ 
+text = 'the cat ]]]]]cat[[[[[*ches the [[[[[[cat&&&&erpiller.'
+pattern = r'\bcat\b'
+print(re.findall(pattern, text))
+ 
+# search for pattern 'iii' in string 'piiig'
+match = re.search(r'iii', 'piiig')
+print(match.group())
+ 
+match1 = re.search(r'igs', 'piiig')
+print(match1.group())
+ 
+# Replace sub-string using regex
+text = 'There is rain in Mumbai'
+x = re.sub(r'\s', '\t', text)
+print(x)
+ 
+# Replace sub-string using regex
+text2 = 'There is rain in Mumbai'
+x2 = re.sub(r'\s', '\t', text2, 2)
+print(x2)
+ 
+Topic 2: Database connection
+pip uninstall -y mysql.connector
+we need to install mysql connector for python: pip install mysql-connector-python
+ 
+import mysql.connector
+mydb = mysql.connector.connect(
+    host = "localhost",
+    user = "root",
+    password = "Root123$"
+)
+cursor = mydb.cursor()
+# cursor.execute("CREATE DATABASE brainstrom")
+cursor.execute("USE brainstrom")
+cursor.execute("DROP TABLE company")
+cursor.execute("""CREATE TABLE company 
+                    (
+                        name VARCHAR(255), 
+                        ownerName VARCHAR(255)
+                    )
+                """)
+                
+Topic 3 and 4: Database CRUD and Exception Handling
+import mysql.connector
+ 
+dbConfig = {
+    "host": 'localhost',
+    "user": 'root',
+    "password": 'Root123$',
+}
+ 
+def createDatabase(dbName):
+    try:
+        conn = mysql.connector.connect(**dbConfig)
+        cursor = conn.cursor()
+        cursor.execute(f"CREATE DATABASE {dbName}")
+        print(f"Created database {dbName} successfully!")
+        cursor.execute("SHOW DATABASES")
+        return conn
+    except mysql.connector.Error as err:
+        print("Error connecting to the database: ", err)
+        return None
+    
+def connectToDB(dbName):
+    try:
+        conn = mysql.connector.connect(**dbConfig)
+        cursor = conn.cursor()
+        cursor.execute(f"USE {dbName}")
+        print("Connected to the database.")
+        return conn
+    except mysql.connector.Error as err:
+        print("Error connecting to the database: ", err)
+        return None
+ 
+def createTable(conn):
+    try:
+        cursor = conn.cursor()
+        createTableQuery = """CREATE TABLE IF NOT EXISTS employees 
+                        (
+                            id INT AUTO_INCREMENT PRIMARY KEY, 
+                            name VARCHAR(255) NOT NULL,
+                            age INT,
+                            department VARCHAR(100)        
+                        )
+                    """
+        cursor.execute(createTableQuery)
+    except mysql.connector.Error as err:
+        print("Error creating table: ", err)
+        return None
+ 
+# def connectToDB():
+    try:
+        conn = mysql.connector.connect(**dbConfig)
+        print("Connected to the database.")
+        return conn
+    except mysql.connector.Error as err:
+        print("Error connecting to the database: ", err)
+        return None
+    
+def insertRecord(conn, name, age, department):
+    try:
+        cursor = conn.cursor()
+        insertQuery = "INSERT INTO employees (name, age, department) VALUES (%s, %s, %s)"
+        data = (name, age, department)
+        cursor.execute(insertQuery, data)
+        conn.commit()
+        print("Record inserted successfully!")
+    except mysql.connector.Error as err:
+        print("Error inserting record: ", err)
+        return None
+ 
+ 
+def fetchRecords(conn):
+    try:
+        cursor = conn.cursor()
+        fetchQuery = "SELECT * FROM employees"
+        cursor.execute(fetchQuery)
+        records = cursor.fetchall()
+        for record in records:
+            print(record)
+    except mysql.connector.Error as err:
+        print("Error fetching records: ", err)
+ 
+def updateRecord(conn, id, name, age, department):
+    try:
+        cursor = conn.cursor()
+        updateQuery = "UPDATE employees SET name = %s, age = %s, department = %s WHERE id = %s"
+        data = (name, age, department, id)
+        cursor.execute(updateQuery, data)
+        conn.commit()
+        print("Record updated successfully!")
+    except mysql.connector.Error as err:
+        print("Error updating record: ", err)
+ 
+def deleteRecord(conn, id):
+    try:
+        cursor = conn.cursor()
+        delete_query = "DELETE FROM employees WHERE id = %s"
+        data = (id,)
+        cursor.execute(delete_query, data)
+        conn.commit()
+        print("Record deleted successfully")
+    except mysql.connector.Error as err:
+        print("Error deleting record:", err)
+ 
+ 
+# Calling the required functions
+# createDatabase('brainstrom')
+conn = connectToDB('brainstrom')
+# createTable(conn)
+insertRecord(conn, 'Sanjay', 20, "CEO")
+# fetchRecords(conn)
+# updateRecord(conn, 2, 'Sanjay', 25, "MD")
+# fetchRecords(conn)
+# deleteRecord(conn, 2)
+# fetchRecords(conn)
+ 
+Topic 5: Case Study Banking
+# Let's consider a simple banking-related case study: Creating a basic ATM simulator using Python. This simulator will allow users to perform operations like checking their balance, making deposits, and withdrawing funds.
+ 
+# **Case Study: Basic ATM Simulator**
+ 
+# In this case study, we'll create a Python program that simulates an ATM interface for a user. The program will have the following functionalities:
+ 
+# 1. Check Account Balance
+# 2. Make a Deposit
+# 3. Withdraw Funds
+ 
+# Here's how you can implement this:
+ 
+class BankAccount:
+    def __init__(self, balance=0):
+        self.balance = balance
+ 
+    def check_balance(self):
+        return self.balance
+ 
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            return True
+        else:
+            return False
+ 
+    def withdraw(self, amount):
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            return True
+        else:
+            return False
+ 
+ 
+def main():
+    account = BankAccount()
+ 
+    while True:
+        print("\nATM Simulator")
+        print("1. Check Balance")
+        print("2. Make a Deposit")
+        print("3. Withdraw Funds")
+        print("4. Exit")
+ 
+        choice = input("Enter your choice: ")
+ 
+        if choice == "1":
+            print(f"Your balance: ${account.check_balance()}")
+ 
+        elif choice == "2":
+            amount = float(input("Enter the deposit amount: $"))
+            if account.deposit(amount):
+                print("Deposit successful.")
+            else:
+                print("Invalid deposit amount.")
+ 
+        elif choice == "3":
+            amount = float(input("Enter the withdrawal amount: $"))
+            if account.withdraw(amount):
+                print("Withdrawal successful.")
+            else:
+                print("Insufficient funds or invalid withdrawal amount.")
+ 
+        elif choice == "4":
+            print("Exiting ATM Simulator.")
+            break
+ 
+        else:
+            print("Invalid choice. Please select a valid option.")
+ 
+ 
+if __name__ == "__main__":
+    main()
+ 
+# **Usage:**
+ 
+# 1. Run the script.
+# 2. Follow the on-screen prompts to perform actions like checking balance, making deposits, and withdrawing funds.
+ 
+################# Day 3
+Topic 1 and 2: Numpy 1D and 2D and Indexing and Slicing
+# NumPy (Numerical Python) is a powerful library in Python that provides support for working with arrays and matrices, along with a wide range of mathematical functions to operate on these arrays. It's widely used in scientific computing, data analysis, and machine learning due to its efficient array operations and optimized numerical routines. Let's explore NumPy's basics, 1D arrays, and 2D arrays.
+ 
+# **Basics:**
+ 
+# 1. **Installing NumPy:**
+#    You can install NumPy using pip:
+ 
+   # pip install numpy
+ 
+ 
+# 2. **Importing NumPy:**
+#    Import the library at the beginning of your code:
+ 
+# import numpy as np
+ 
+ 
+# **1D Arrays (Vectors):**
+ 
+# A 1D array, often called a vector, is a collection of elements arranged in a single dimension. NumPy's `ndarray` (n-dimensional array) is used to represent such arrays.
+ 
+# **Creating 1D Arrays:**
+ 
+import numpy as np
+ 
+# Creating a 1D array from a list
+arr = np.array([1, 2, 3, 4, 5,6,7,8,9,10,11,12])
+print(type(arr))
+print(arr[0])
+print(arr[-1])
+ 
+# array[start: stop-1, step]
+print(arr[0:8])
+ 
+print(arr * 2)
+ 
+# A 2D array, or matrix, is a collection of elements arranged in rows and columns.
+ 
+# Creating a 2D array from a nested list
+matrix = np.array([[1, 2, 3],
+                   [4, 5, 6],
+                   [7, 8, 9]])
+ 
+# indexing in 2D array
+print(matrix[1,1])
+ 
+# Slicing in 2D array
+print(matrix[1:3,0:2])
+ 
+Topic 3: arange and reshape
+# The `numpy.arange()` function is used to generate a sequence of numbers within a specified range, while the `numpy.reshape()` function is used to change the shape of a NumPy array. Let's explore these functions with an example and explanations.
+ 
+# **Example: Using `numpy.arange()` and `numpy.reshape()`**
+ 
+ 
+import numpy as np
+ 
+# Using arange to create an array of numbers
+arr = np.arange(50)  # Generates numbers from 0 to 9
+print("Original array:")
+print(arr)
+# Output: [0 1 2 3 4 5 6 7 8 9]
+ 
+ 
+print(arr.shape)
+print(arr.ndim)
+matrix = arr.reshape(4,10)
+print(matrix.ndim)
+ 
+# **Explanation:**
+ 
+# 1. **`numpy.arange()`**:
+#    - The `numpy.arange()` function generates a sequence of numbers within a specified range.
+#    - It takes three arguments: `start`, `stop`, and `step`.
+#    - `start` (optional): The starting value of the sequence. If not provided, it defaults to 0.
+#    - `stop`: The end value of the sequence (exclusive) which also means (stop-1).
+#    - `step` (optional): The step size between values. If not provided, it defaults to 1.
+ 
+#    In the example, `np.arange(10)` generates numbers from 0 to 9 with a default step of 1.
+ 
+# 2. **`numpy.reshape()`**:
+#    - The `numpy.reshape()` function is used to change the shape of a NumPy array while maintaining the total number of elements.
+#    - It takes a tuple representing the new shape as an argument.
+ 
+#    In the example, we reshape the original 1D array into a 2D array with shape `(2, 5)`. The resulting array has 2 rows and 5 columns, and the original elements are distributed accordingly.
+ 
+# **Additional Notes:**
+ 
+# - When using `reshape()`, the total number of elements in the original and reshaped arrays must be the same.
+# - If you provide `-1` as one of the dimensions when reshaping, NumPy will automatically compute the appropriate value to ensure the total number of elements remains unchanged.
+ 
+ 
+# Creating a 2D array from a nested list
+matrix = np.array([[1, 2, 3, 4, 5, 6],
+                   [7, 8, 9, 10, 11, 12],
+                   [13, 14, 15, 16, 17, 18]])
+ 
+print(matrix.shape)
+matrix2 = matrix.reshape(2, 9)
+print(matrix2)
+print(matrix2.shape)
+ 
+Topic 4: Zeros and Ones Arrays
+ 
+# The `numpy.zeros()` and `numpy.ones()` functions are used to create arrays filled with zeros and ones, respectively. These functions are useful for initializing arrays with specific shapes and values, which is a common task in various scientific computing, data analysis, and machine learning applications. Let's explore these functions with explanations and examples.
+ 
+# **`numpy.zeros()` and `numpy.ones()` Functions:**
+ 
+# - `numpy.zeros(shape, dtype=None, order='C')`: Creates an array of zeros with the specified shape.
+# - `numpy.ones(shape, dtype=None, order='C')`: Creates an array of ones with the specified shape.
+ 
+# **Example: Creating Arrays with Zeros and Ones**
+import numpy as np
+ 
+# Creating a 1D array of zeros
+zeros_arr = np.zeros(5)
+print("Zeros array:")
+print(zeros_arr)
+# Output: [0. 0. 0. 0. 0.]
+ 
+# Creating a 2D array of ones
+ones_arr = np.ones((3, 4))
+print("\nOnes array:")
+print(ones_arr)
+# Output:
+# [[1. 1. 1. 1.]
+#  [1. 1. 1. 1.]
+#  [1. 1. 1. 1.]]
+ 
+Topic 5: Read Write from Pandas
+# **Introduction to Pandas:**
+ 
+# Pandas is a popular open-source library in Python for data manipulation and analysis. It provides data structures and functions needed to work with structured data efficiently. Pandas is particularly powerful for handling tabular data (like spreadsheets or SQL tables) and time series data. The two main data structures in Pandas are the `Series` (1-dimensional) and `DataFrame` (2-dimensional). The library allows you to perform tasks like data cleaning, transformation, exploration, and visualization.
+ 
+# **Example: Reading and Writing Excel Files with Pandas:**
+ 
+# In this example, we'll demonstrate how to read data from an Excel file into a Pandas DataFrame and how to write data from a DataFrame into an Excel file.
+ 
+# **Reading Excel File:**
+ 
+# Suppose you have an Excel file named `data.xlsx` with the following contents:
+ 
+# | Name   | Age | City     |
+# |--------|-----|----------|
+# | Alice  | 25  | New York |
+# | Bob    | 30  | London   |
+# | Carol  | 22  | Paris    |
+ 
+ 
+# **To open the ods files using pandas install: pip install odfpy
+ 
+import pandas as pd
+ 
+# Reading data from Excel file into a DataFrame
+df = pd.read_excel(r'C:\Users\Administrator\Documents\Adv-Python\Day 3\pandasExcel.ods')
+ 
+print(df)
+ 
+ 
+# **Writing Excel File:**
+ 
+ 
+# Creating a new DataFrame
+new_data = {
+    'Name': ['David', 'Eve'],
+    'Age': [28, 35],
+    'City': ['Sydney', 'Tokyo']
+}
+new_df = pd.DataFrame(new_data)
+ 
+# Writing the DataFrame to an Excel file
+new_df.to_excel(r'C:\Users\Administrator\Documents\Adv-Python\Day 3\new_data.ods', index=False)
+ 
+Topic 6: Data Cleaning and Wrangling
+# Data cleaning and wrangling are essential steps in preparing data for analysis. Let's go through a detailed example of data cleaning and wrangling using Pandas.
+ 
+# **Example: Data Cleaning and Wrangling**
+ 
+# Suppose you have a dataset containing information about students and their exam scores. The dataset is messy and requires cleaning and wrangling before analysis.
+ 
+# Name,Gender,Age,Math_Score,English_Score
+# Alice,Female,25,85,92
+# Bob,Male,,70,80
+# Carol,Female,22,,88
+# David,Male,28,78,
+# Eve,Female,35,,95
+# In this example, we'll perform the following steps:
+ 
+# 1. Read the CSV file into a Pandas DataFrame.
+# 2. Clean missing values.
+# 3. Calculate the average score for each student.
+# 4. Export the cleaned and processed data to a new CSV file.
+ 
+import pandas as pd
+ 
+# Step 1: Read the CSV file into a DataFrame
+df = pd.read_excel(r'C:\Users\Administrator\Documents\Adv-Python\cleaning-wrangling.ods')
+ 
+# # Display the cleaned DataFrame
+# print(df)
+ 
+# Step 2: Clean missing values
+# Fill missing values in Age, Math_Score, and English_Score with 0
+df.fillna(0, inplace=True)
+ 
+# Convert Age column to integer
+df['Age'] = df['Age'].astype(int)
+ 
+# Step 3: Calculate the average score for each student
+df['Average_Score'] = (df['Math_Score'] + df['English_Score']) / 2
+ 
+# Step 4: Export the cleaned data to a new CSV file
+df.to_csv(r'C:\Users\Administrator\Documents\Adv-Python\Day 3\cleaned_student_scores.csv', index=False)
+ 
+# # Display the cleaned DataFrame
+# print(df)
+ 
+# After running this code, the cleaned DataFrame will look like this:
+ 
+# ```
+#      Name  Gender  Age  Math_Score  English_Score  Average_Score
+# 0   Alice  Female   25          85             92           88.5
+# 1     Bob    Male    0          70             80           75.0
+# 2   Carol  Female   22           0             88           44.0
+# 3   David    Male   28          78              0           39.0
+# 4     Eve  Female   35           0             95           47.5
+# ```
+ 
+# **Explanation:**
+ 
+# 1. We read the CSV file into a Pandas DataFrame using the `read_csv()` function.
+# 2. We clean missing values by filling them with 0 using the `fillna()` function and convert the 'Age' column to integers.
+# 3. We calculate the average score for each student and add a new 'Average_Score' column to the DataFrame.
+# 4. We export the cleaned DataFrame to a new CSV file using the `to_csv()` function.
+ 
+# This example showcases typical data cleaning and wrangling tasks, such as handling missing values, converting data types, and creating derived columns. Pandas provides a wide range of functions for data manipulation and analysis, making it a powerful tool for preparing data for further exploration and modeling.
+ 
+# Data cleaning and data wrangling are essential steps in the data preparation process before conducting data analysis or building machine learning models. These two processes involve transforming raw, messy, and unstructured data into a clean, structured, and usable format. Let's explore each of these processes in detail:
+ 
+# **Data Cleaning:**
+ 
+# Data cleaning, also known as data cleansing, is the process of identifying and correcting errors, inconsistencies, and inaccuracies in a dataset. The goal of data cleaning is to improve data quality and reliability, ensuring that the data is accurate and trustworthy for analysis. Common tasks in data cleaning include:
+ 
+# 1. **Handling Missing Values:** Identifying and addressing missing values, which can be done by imputing values (replacing missing values with estimated values) or removing records with missing values.
+ 
+# 2. **Removing Duplicates:** Detecting and removing duplicate records to avoid data redundancy and potential bias in analysis.
+ 
+# 3. **Standardizing Formats:** Ensuring consistent data formats for categories like dates, names, addresses, and more to facilitate accurate analysis.
+ 
+# 4. **Correcting Inaccurate Values:** Identifying and correcting values that are clearly wrong or out of the expected range.
+ 
+# 5. **Handling Outliers:** Identifying and deciding how to handle data points that significantly deviate from the norm.
+ 
+# 6. **Dealing with Inconsistent Labels:** Unifying labels, categories, and units to create a cohesive dataset.
+ 
+# **Data Wrangling:**
+ 
+# Data wrangling, also known as data munging or data transformation, refers to the process of reshaping and transforming data into a format suitable for analysis. It involves cleaning, structuring, and aggregating data to make it more accessible and useful for downstream tasks. Data wrangling tasks include:
+ 
+# 1. **Reshaping Data:** Converting data from a wide format to a long format or vice versa to make it suitable for analysis.
+ 
+# 2. **Merging and Joining Data:** Combining multiple datasets based on common keys or columns to create a unified dataset.
+ 
+# 3. **Aggregating Data:** Summarizing and aggregating data based on certain attributes to generate insights or features.
+ 
+# 4. **Creating Derived Features:** Generating new features or variables that are combinations of existing variables, often for better predictive power.
+ 
+# 5. **Extracting and Transforming Data:** Extracting relevant information from raw data (e.g., text data) and transforming it into a structured format.
+ 
+# 6. **Data Conversion:** Converting data types to match analysis requirements.
+ 
+# **Importance of Data Cleaning and Wrangling:**
+ 
+# Data cleaning and wrangling are critical because the quality and structure of data directly impact the accuracy and validity of any analysis or model built upon it. Messy and unstructured data can lead to erroneous conclusions and predictions. By cleaning and wrangling data effectively, you ensure that your analysis and modeling efforts are based on reliable and meaningful insights.
+ 
+Topic 7: Data Visualization
+# Here are ten examples of data visualizations using the Matplotlib library in Python. Each example includes code to generate a different type of chart.
+ 
+# **1. Line Chart:**
+ 
+ 
+import matplotlib.pyplot as plt
+ 
+x = [1, 2, 3, 4, 5]
+y = [10, 25, 18, 32, 12]
+ 
+plt.plot(x, y, marker='o')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Line Chart')
+plt.show()
+ 
+ 
+# **2. Bar Chart:**
+ 
+ 
+import matplotlib.pyplot as plt
+ 
+categories = ['A', 'B', 'C', 'D']
+values = [15, 30, 10, 25]
+ 
+plt.bar(categories, values)
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Bar Chart')
+plt.show()
+ 
+ 
+# **3. Histogram:**
+ 
+ 
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+data = np.random.randn(1000)
+ 
+plt.hist(data, bins=20)
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Histogram')
+plt.show()
+ 
+ 
+# **4. Scatter Plot:**
+ 
+ 
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+x = np.random.rand(50)
+y = np.random.rand(50)
+ 
+plt.scatter(x, y)
+plt.xlabel('X')
+plt.ylabel('Y')
+plt.title('Scatter Plot')
+plt.show()
+ 
+ 
+# **5. Pie Chart:**
+ 
+ 
+import matplotlib.pyplot as plt
+ 
+sizes = [30, 25, 15, 10, 20]
+labels = ['A', 'B', 'C', 'D', 'E']
+ 
+plt.pie(sizes, labels=labels, autopct='%1.1f%%')
+plt.title('Pie Chart')
+plt.show()
+ 
+ 
+# **6. Box Plot:**
+ 
+ 
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+data = np.random.randn(100, 4)
+ 
+plt.boxplot(data)
+plt.xticks([1, 2, 3, 4], ['A', 'B', 'C', 'D'])
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Box Plot')
+plt.show()
+ 
+ 
+# **7. Area Chart:**
+ 
+ 
+import matplotlib.pyplot as plt
+ 
+x = [1, 2, 3, 4, 5]
+y = [10, 25, 18, 32, 12]
+ 
+plt.fill_between(x, y, color='skyblue', alpha=0.5)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Area Chart')
+plt.show()
+ 
+ 
+# **8. Violin Plot:**
+ 
+ 
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+data = np.random.randn(100, 4)
+ 
+plt.violinplot(data)
+plt.xticks([1, 2, 3, 4], ['A', 'B', 'C', 'D'])
+plt.xlabel('Categories')
+plt.ylabel('Values')
+plt.title('Violin Plot')
+plt.show()
+ 
+ 
+# **9. Heatmap:**
+ 
+ 
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+data = np.random.rand(5, 5)
+ 
+plt.imshow(data, cmap='coolwarm', interpolation='nearest')
+plt.colorbar()
+plt.title('Heatmap')
+plt.show()
+ 
+ 
+# **10. Polar Plot:**
+ 
+ 
+import matplotlib.pyplot as plt
+import numpy as np
+ 
+theta = np.linspace(0, 2*np.pi, 100)
+r = 2 * np.cos(5 * theta)
+ 
+plt.polar(theta, r)
+plt.title('Polar Plot')
+plt.show()
+ 
+ 
+# These examples showcase various types of visualizations you can create using Matplotlib in Python. Matplotlib provides extensive customization options to further enhance the appearance and details of your visualizations.
+ 
+ 
+Topic 8: Industry standards
+Data visualization is a crucial aspect of data analysis and communication. When using Matplotlib for data visualization in industry settings, there are several best practices and considerations to keep in mind to create effective and informative visualizations:
+ 
+1. **Understand Your Data:**
+   Before creating visualizations, thoroughly understand your data, its structure, and the insights you want to convey. Consider the type of data, its distribution, and the relationships between variables.
+ 
+2. **Choose the Right Chart Type:**
+   Select a chart type that best represents your data and effectively communicates your message. Choose from options like line charts, bar charts, scatter plots, histograms, etc., based on your data's nature and the insights you want to convey.
+ 
+3. **Keep it Simple:**
+   Avoid cluttering your visualization with too much information. Keep the design clean and straightforward to avoid confusing your audience.
+ 
+4. **Labels and Titles:**
+   Label your axes clearly with meaningful labels, units, and scales. Provide a descriptive title that summarizes the main message of the visualization.
+ 
+5. **Color Choices:**
+   Choose a color palette that is easy on the eyes and effectively highlights different elements. Use color to distinguish data categories but avoid using too many colors that can lead to confusion.
+ 
+6. **Annotations and Highlights:**
+   Use annotations, text, and markers to draw attention to specific data points or trends. Arrows, labels, and callouts can help clarify key insights.
+ 
+7. **Legend and Labels:**
+   If your visualization involves multiple data series, include a legend to explain what each color or pattern represents. Label individual data points if needed.
+ 
+8. **Consistency:**
+   Maintain a consistent style and formatting throughout your visualizations. Use the same color scheme, font, and design elements to ensure a professional look.
+ 
+9. **Data Scaling:**
+   Ensure that your visualizations accurately represent the data by using appropriate scaling on the axes. Misleading scales can distort interpretations.
+ 
+10. **Interactivity (Optional):**
+    In interactive environments, such as Jupyter Notebooks or web applications, consider adding interactive elements like tooltips or zoom functionalities to allow users to explore the data further.
+ 
+11. **Data Wrangling and Transformation:**
+    Often, data needs preprocessing before visualization. Utilize Pandas or other tools to clean and transform your data into a suitable format for visualization.
+ 
+12. **Documentation:**
+    Clearly document your code and the thought process behind your visualizations. This documentation will be valuable for collaboration and future reference.
+ 
+13. **Exploratory and Explanatory Visualizations:**
+    Distinguish between exploratory visualizations (used for personal exploration and insights) and explanatory visualizations (created for sharing insights with others). Explanatory visualizations require additional design considerations and context.
+ 
+14. **Testing:**
+    Test your visualizations with different data subsets or scenarios to ensure they accurately represent the data and highlight relevant insights.
+ 
+15. **Feedback and Iteration:**
+    Seek feedback from colleagues or stakeholders and iterate on your visualizations to improve clarity and impact.
+ 
+By following these industry practices, you can create data visualizations that effectively convey insights, facilitate decision-making, and enhance communication within your organization or to a broader audience.
+ 
+ 
+################# Day 4
+Topic 1: Data Analytics with Python
+https://github.com/anurag-chiplunkar/citi-advancePython/tree/master
+ 
+# To import the required pandas library and alias it as pd
+import pandas as pd
+ 
+# This is another way to import any file from the base computer, if you dont want to add the file to the jupyter environment.
+# df = pd.read_csv(r"C:\Users\Administrator\Downloads\citi-advancePython-master\citi-advancePython-master\Day 4\data.csv")
+ 
+# Simple way to upload the file, first upload it to jupyter environment then load as shown below
+df = pd.read_csv("data.csv")
+ 
+# This command is used to get the sample of the data, first 5 sample rows
+df.head()
+ 
+# This command gives the overall information of the dataframe
+df.info()
+ 
+ 
+# Finding duplicated values in the DataFrame
+df.duplicated().any()
+ 
+#isnull() is a method of Pandas Series objects, while isna() is a method of both Series and DataFrame objects# To find any null values
+df.isnull()
+ 
+# isnull() is a method of Pandas Series objects, while isna() is a method of both Series and DataFrame objects
+# To find null values
+df.isna()
+ 
+# This command will give the list of all columns having any null values and its boolean output as true or false 
+df.isna().any()
+ 
+# This command will give the exact numbers of null values in each columns
+df.isna().sum()
+ 
+# To fill or replace the NAN values with proper values
+df.fillna(
+    {
+        'name': 'Not Stated',
+        'host_name': 'Not Stated',
+        'last_review': 0
+    },
+    inplace=True
+)
+ 
+ 
+# This command will give the exact numbers of null values in each columns
+df.isna().sum()
+ 
+# Dropping the column from dataframe
+# axis = 1; means make the changes column-wise
+# axis = 0; means make the changes row-wise
+# inplace = True; means make the changes permanent to the existing dataframe(df), if no inplace = Ture is written it means changes are only valid for that cell. By default inplace is False
+df.drop(
+    [
+        'reviews_per_month'
+    ],
+    axis = 1,
+    inplace=True
+)
+ 
+ 
+# Checking the uniqueness of the id column
+df['id'].is_unique
+ 
+ 
+ 
+# To set the existing column (id) as the index of the dataframe (df)
+df.set_index('id', inplace=True)
+df.head()
+ 
+ 
+# To delete a row use axis=0
+df.drop([2539, 2595], axis=0)
+ 
+ 
+# To rename the column heads
+df.rename(columns={'name': 'listingName', 'number_of_reviews': 'reviews'}, inplace=True)
+df.head()
