@@ -996,3 +996,127 @@ df.drop([2539, 2595], axis=0)
 # To rename the column heads
 df.rename(columns={'name': 'listingName', 'number_of_reviews': 'reviews'}, inplace=True)
 df.head()
+
+# Inheritance
+class Vehicle:
+    def __init__(self, brand, model):
+        self.brand = brand
+        self.model = model
+
+    def start_engine(self):
+        return print("Vehicle Engine started.")
+
+
+class Car(Vehicle):
+    def __init__(self, model, brand, num_doors):
+        super().__init__(brand, model)
+        self.num_doors = num_doors
+
+    def drive(self):
+        return "Car is moving."
+
+
+class Motorcycle(Vehicle):
+    def __init__(self, brand, model, num_wheels):
+        super().__init__(brand, model)
+        self.num_wheels = num_wheels
+
+    def ride(self):
+        return "Motorcycle is riding."
+
+car1 = Car(model="Honda", brand="Civic", num_doors=4)
+car1.start_engine()
+
+
+# Encapsulation
+class Person:
+    def __init__(self, name):
+        self.__name = name  # Encapsulated attribute with double underscores
+
+    def display_name(self):
+        return f"Name: {self.__name}"
+
+
+# Creating an object of the Person class
+person = Person("John Doe")
+
+# print(person.name)
+
+# # Accessing the encapsulated attribute (Not recommended)
+print(person.Person__name)  # Output: John Doe
+
+# Accessing the attribute using the method (Recommended)
+# print(person.display_name())  # Output: Name: John Doe
+
+
+
+# Abstraction
+
+from abc import ABC, abstractmethod
+
+class BankAccount(ABC):
+    def __init__(self, account_number, balance):
+        self.account_number = account_number
+        self.balance = balance
+
+    @abstractmethod
+    def deposit(self, amount):
+        pass
+
+    @abstractmethod
+    def withdraw(self, amount):
+        pass
+
+
+class SavingsAccount(BankAccount):
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+        else:
+            print("Insufficient balance.")
+
+
+class CurrentAccount(BankAccount):
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        self.balance -= amount
+
+
+# Creating objects of SavingsAccount and CurrentAccount
+savings_acc = SavingsAccount("SA-123", 5000)
+current_acc = CurrentAccount("CA-456", 8000)
+
+# Using the abstraction to deposit and withdraw
+savings_acc.deposit(2000)
+current_acc.withdraw(3000)
+
+print(savings_acc.balance)  # Output: 7000
+print(current_acc.balance)  # Output: 5000
+
+# Polymorphism
+
+class Shape:
+    def calculate_area(self):
+        pass
+
+
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    def calculate_area(self):
+        return self.length * self.width
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def calculate_area(self):
+        return 3.14 * self.radius ** 2
